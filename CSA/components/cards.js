@@ -1,9 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, ScrollView, Image, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 
-const DetailsPage = () => {
+const DetailsPage = ({navigation}) => {
   const images = [
     'https://wallpapers.com/images/featured/cute-anime-uptxxcxl4h2zoe9r.webp',
     'https://w0.peakpx.com/wallpaper/740/501/HD-wallpaper-anime-girl-alone-anime-cute-girl-nature-stars.jpg',
@@ -12,8 +11,8 @@ const DetailsPage = () => {
     'https://images.wallpapersden.com/image/ws-satoru-gojo-acid-blue-eyes-jujutsu-kaisen_91485.jpg',
   ];
   const details = [
-    { title: 'Communication services', text: '' },
-    { title: 'Communication History', text: '' },
+    { title: 'Communication services', text: 'Communication' },
+    { title: 'Communication History', text: '#' },
     { title: 'Analytics', text: '' },
   ];
 
@@ -38,7 +37,9 @@ const DetailsPage = () => {
           {details.map((item, index) => (
               <TouchableOpacity style={styles.detailsCard} key={index} onPress={
                   () => {
-                      NavigationContainer.navigate(item.title);
+                      //   NavigationContainer.navigate(item.title);
+                      navigation.navigate(item.text);
+                      
                   }
             }>
               <Text style={styles.detailsTitle}>{item.title}</Text>

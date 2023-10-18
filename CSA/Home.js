@@ -37,7 +37,7 @@ const details = [{
 
 const Stack = createStackNavigator();
 
-export default function Home() {
+export default function Home({navigation}) {
       const [activeJobType, setActiveJobType] = useState("Full-time");
   return (
       <SafeAreaView style = {
@@ -49,27 +49,11 @@ export default function Home() {
 
           <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Tejas</Text>
+        <Text style={styles.userName}>Hello World</Text>
         <Text style={styles.welcomeMessage}></Text>
       </View>
 
-      {/* <View style={styles.searchContainer}>
-        <View style={styles.searchWrapper}>
-          <TextInput
-            style={styles.searchInput}
-            // value={searchTerm}
-            // onChangeText={(text) => setSearchTerm(text)}
-            placeholder='What are you looking for?'
-          />
-        </View>
 
-        <TouchableOpacity style={styles.searchBtn}>
-          <Image
-            resizeMode='contain'
-            style={styles.searchBtnImage}
-          />
-        </TouchableOpacity>
-      </View> */}
 
       <View style={styles.tabsContainer}>
         <FlatList
@@ -90,7 +74,7 @@ export default function Home() {
         />
       </View>
     </View>
-    <DetailsPage/>
+    <DetailsPage navigation={navigation}/>
     </SafeAreaView>
   )
 }

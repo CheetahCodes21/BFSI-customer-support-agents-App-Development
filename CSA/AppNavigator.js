@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './Login';
 import ContactPage from './Call';
 import Home from './Home';
+import CommunicationServices from './Comms';
 
 import {
   COLORS,
@@ -51,6 +52,7 @@ const AppNavigator = () => {
       </Stack.Screen> */}
       <Stack.Screen name="Contact" component={ContactPage} />
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Communication" component={CommunicationServices} />
     </Stack.Navigator>
   );
 };
