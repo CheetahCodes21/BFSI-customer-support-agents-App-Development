@@ -15,12 +15,14 @@ import {
   images,
 } from './constants';
 import ScreenHeaderBtn from './components/screen-header-btn';
+import PhoneScreen from './PhoneScreen';
+import Analtyics from './Analytics'
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   const handleLogin = (navigation) => {
-    // Handle the navigation to the "Home" screen after successful login
-    navigation.navigate('Communication');
+    
+    navigation.navigate('Home');
   };
 
   return (
@@ -55,6 +57,8 @@ const AppNavigator = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Communication" component={CommunicationServices} />
       <Stack.Screen name="Email" component={EmailPage} />
+      <Stack.Screen name="PhoneScreen" component={PhoneScreen} />
+      <Stack.Screen name="Analtyics" component={Analtyics} />
     </Stack.Navigator>
   );
 };
