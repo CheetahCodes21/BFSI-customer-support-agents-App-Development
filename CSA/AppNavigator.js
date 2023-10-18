@@ -3,6 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './Login';
 import ContactPage from './Call';
+import CommunicationServices from './Comms';
 
 
 const Stack = createStackNavigator();
@@ -19,6 +20,7 @@ const AppNavigator = () => {
         {({ navigation }) => <LoginPage onLogin={() => handleLogin(navigation)} />}
       </Stack.Screen>
       <Stack.Screen name="Contact" component={ContactPage} />
+      <Stack.Screen name="Communication" component={CommunicationServices} />
     </Stack.Navigator>
   );
 };
