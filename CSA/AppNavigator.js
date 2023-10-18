@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   const handleLogin = (navigation) => {
     // Handle the navigation to the "Home" screen after successful login
-    navigation.navigate('Communication');
+    navigation.navigate('Home');
   };
 
   return (
