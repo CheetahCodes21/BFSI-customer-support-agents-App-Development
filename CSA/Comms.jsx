@@ -6,10 +6,6 @@ const CommunicationServices  = ({ navigation }) => {
     // Implement chat functionality
   };
 
-  const handleEmailPress = () => {
-    // Implement email functionality
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.headingContainer}>
@@ -19,7 +15,7 @@ const CommunicationServices  = ({ navigation }) => {
         <TouchableOpacity onPress={handleChatPress} style={[styles.button, { width: 200 }]}>
           <Text style={styles.buttonText}>🗨 Chat</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleEmailPress} style={[styles.button, { width: 200 }]}>
+        <TouchableOpacity onPress={() => navigation.navigate("Email")} style={[styles.button, { width: 200 }]}>
           <Text style={styles.buttonText}>📧 Email</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Contact")} style={[styles.button, { width: 200 }]}>

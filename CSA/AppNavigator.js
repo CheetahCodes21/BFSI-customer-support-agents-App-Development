@@ -5,6 +5,7 @@ import LoginPage from './Login';
 import ContactPage from './Call';
 import Home from './Home';
 import CommunicationServices from './Comms';
+import EmailPage from './EmailPage';
 
 import {
   COLORS,
@@ -19,7 +20,7 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   const handleLogin = (navigation) => {
     // Handle the navigation to the "Home" screen after successful login
-    navigation.navigate('Home');
+    navigation.navigate('Communication');
   };
 
   return (
@@ -53,6 +54,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Contact" component={ContactPage} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Communication" component={CommunicationServices} />
+      <Stack.Screen name="Email" component={EmailPage} />
     </Stack.Navigator>
   );
 };
