@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const CommunicationServices = () => {
+const CommunicationServices  = ({ navigation }) => {
   const handleChatPress = () => {
     // Implement chat functionality
   };
@@ -22,7 +22,7 @@ const CommunicationServices = () => {
         <TouchableOpacity onPress={handleEmailPress} style={[styles.button, { width: 200 }]}>
           <Text style={styles.buttonText}>📧 Email</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>navigation.navigate('Contact')} style={[styles.button, { width: 200 }]}>
+        <TouchableOpacity onPress={() => navigation.navigate("Contact")} style={[styles.button, { width: 200 }]}>
           <Text style={styles.buttonText}>📞 Call</Text>
         </TouchableOpacity>
       </View>
