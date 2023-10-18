@@ -10,8 +10,8 @@ const DetailsPage = ({navigation}) => {
   ];
   const details = [
     { title: 'Communication services', text: 'Communication' },
-    { title: 'Communication History', text: '' },
-    { title: 'Analytics', text: '' },
+    { title: 'Communication History', text: 'PhoneScreen' },
+    { title: 'Analytics', text: 'Analtyics' },
   ];
 
   return (
