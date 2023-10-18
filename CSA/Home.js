@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { Text,View,TextInput,TouchableOpacity, Image, FlatList, SafeAreaView } from 'react-native'
+import React, { useState } from 'react'
+import { Text, View, TextInput, TouchableOpacity, Image, FlatList, SafeAreaView } from 'react-native'
 const jobTypes = ["Past day", "Past Month", "Past year"];
 import {
     StyleSheet
@@ -17,68 +17,62 @@ import {
 import DetailsPage from './components/cards';
 
 const details = [{
-        title: 'Name',
-        text: 'John Doe'
-    },
-    {
-        title: 'Address',
-        text: '123 Main St, City, Country'
-    },
-    {
-        title: 'Age',
-        text: '21'
-    },
-    {
-        title: 'Gender',
-        text: 'Male'
-    },
+    title: 'Name',
+    text: 'John Doe'
+},
+{
+    title: 'Address',
+    text: '123 Main St, City, Country'
+},
+{
+    title: 'Age',
+    text: '21'
+},
+{
+    title: 'Gender',
+    text: 'Male'
+},
     // Add more title-detail pairs as needed
 ];
 
 const Stack = createStackNavigator();
-
-export default function Home({navigation}) {
-      const [activeJobType, setActiveJobType] = useState("Full-time");
-  return (
-      <SafeAreaView style = {
-          {
-              flex: 1,
-              backgroundColor: COLORS.lightWhite
-          }
-      } >
-
-          <View>
-      <View style={styles.container}>
-        <Text style={styles.userName}>Hello World</Text>
-        <Text style={styles.welcomeMessage}></Text>
-      </View>
-
-
-
-      <View style={styles.tabsContainer}>
-        <FlatList
-          data={jobTypes}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.tab(activeJobType, item)}
-              onPress={() => {
-                setActiveJobType(item);
-              }}
-            >
-              <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item}
-          contentContainerStyle={{ columnGap: SIZES.small }}
-          horizontal
-        />
-      </View>
-    </View>
-    <DetailsPage navigation={navigation}/>
-    </SafeAreaView>
-  )
+export default function Home({ navigation }) {
+    const [activeJobType, setActiveJobType] = useState("Full-time");
+    return (
+        <SafeAreaView style={
+            {
+                flex: 1,
+                backgroundColor: COLORS.lightWhite
+            }
+        } >
+            <View>
+                <View style={styles.container}>
+                    <Text style={styles.userName}>Hello World</Text>
+                    <Text style={styles.welcomeMessage}></Text>
+                </View>
+                <View style={styles.tabsContainer}>
+                    <FlatList
+                        data={jobTypes}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity
+                                style={styles.tab(activeJobType, item)}
+                                onPress={() => {
+                                    setActiveJobType(item);
+                                }}
+                            >
+                                <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
+                            </TouchableOpacity>
+                        )}
+                        keyExtractor={(item) => item}
+                        contentContainerStyle={{ columnGap: SIZES.small }}
+                        horizontal
+                    />
+                </View>
+            </View>
+            <DetailsPage navigation={navigation} />
+        </SafeAreaView>
+    )
 }
-
 const styles = StyleSheet.create({
     container: {
         width: "100%",
@@ -145,4 +139,3 @@ const styles = StyleSheet.create({
         color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
     }),
 });
-
