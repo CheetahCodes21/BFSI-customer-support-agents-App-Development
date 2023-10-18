@@ -14,6 +14,26 @@ import {
 import {
     createStackNavigator
 } from '@react-navigation/stack';
+import DetailsPage from './components/cards';
+
+const details = [{
+        title: 'Name',
+        text: 'John Doe'
+    },
+    {
+        title: 'Address',
+        text: '123 Main St, City, Country'
+    },
+    {
+        title: 'Age',
+        text: '21'
+    },
+    {
+        title: 'Gender',
+        text: 'Male'
+    },
+    // Add more title-detail pairs as needed
+];
 
 const Stack = createStackNavigator();
 
@@ -70,6 +90,7 @@ export default function Home() {
         />
       </View>
     </View>
+    <DetailsPage/>
     </SafeAreaView>
   )
 }
