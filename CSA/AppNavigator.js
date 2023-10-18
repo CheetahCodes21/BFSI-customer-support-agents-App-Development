@@ -34,7 +34,7 @@ const AppNavigator = () => {
           <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
         ),
         headerRight: () => (
-          <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+          <ScreenHeaderBtn iconUrl={{ uri: 'https://play-lh.googleusercontent.com/3gmcK68HCn52542XkzzQ3Y7h7SLR2lQEeFnsxWz7shTBcza24X8OmytnAK25jtrJCQ' }} dimension="90%" />
         ),
         headerTitle: "",
       }}
