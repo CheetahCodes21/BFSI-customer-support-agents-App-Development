@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './Login';
 import ContactPage from './Call';
 import CommunicationServices from './Comms';
+import EmailPage from './EmailPage';
 
 
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ const AppNavigator = () => {
       </Stack.Screen>
       <Stack.Screen name="Contact" component={ContactPage} />
       <Stack.Screen name="Communication" component={CommunicationServices} />
+      <Stack.Screen name="Email" component={EmailPage} />
     </Stack.Navigator>
   );
 };
