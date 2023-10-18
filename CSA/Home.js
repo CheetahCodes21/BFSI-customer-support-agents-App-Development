@@ -53,8 +53,6 @@ export default function Home({navigation}) {
         <Text style={styles.welcomeMessage}></Text>
       </View>
 
-
-
       <View style={styles.tabsContainer}>
         <FlatList
           data={jobTypes}
@@ -145,4 +143,3 @@ const styles = StyleSheet.create({
         color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
     }),
 });
-
