@@ -1,4 +1,4 @@
-﻿## React Native Mobile Application for BFSI Customer Support Agents
+﻿## React Native Mobile Application for BFSI(Banking, Financial Services and Insurance) Customer Support Agents
 
 ## Problem Statement
 
