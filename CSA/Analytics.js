@@ -3,7 +3,9 @@ import { View, StyleSheet,Text,ScrollView } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 
 const Analytics = () => {
+   // Define usage details for mail, chat, and phone communication for different months.
     const mailUsageDetails = [
+      // Usage details for mail communication.
         <Text key="january"><Text style={styles.boldText}>January:</Text> Increased mail communication due to New Year promotions.</Text>,
         <Text key="february"><Text style={styles.boldText}>February:</Text> Decreased mail communication as focus shifted to other channels.</Text>,
         <Text key="march"><Text style={styles.boldText}>March:</Text> Stable mail communication with regular updates and newsletters.</Text>,
@@ -13,6 +15,7 @@ const Analytics = () => {
       ];
     
       const chatUsageDetails = [
+        // Usage details for chat communication.
         <Text key="january"><Text style={styles.boldText}>January:</Text> High chat communication for handling support queries.</Text>,
         <Text key="february"><Text style={styles.boldText}>February:</Text> Decreased chat communication as fewer support tickets were received.</Text>,
         <Text key="march"><Text style={styles.boldText}>March:</Text> Surge in chat communication for new feature inquiries.</Text>,
@@ -22,6 +25,7 @@ const Analytics = () => {
       ];
     
       const phoneUsageDetails = [
+        // Usage details for phone communication.
         <Text key="january"><Text style={styles.boldText}>January:</Text> Steady phone communication for product inquiries.</Text>,
         <Text key="february"><Text style={styles.boldText}>February:</Text> Phone communication increased for order-related questions.</Text>,
         <Text key="march"><Text style={styles.boldText}>March:</Text> Surge in phone communication due to service disruptions.</Text>,
@@ -29,7 +33,10 @@ const Analytics = () => {
         <Text key="may"><Text style={styles.boldText}>May:</Text> Increased phone communication for sales and discounts.</Text>,
         <Text key="june"><Text style={styles.boldText}>June:</Text> Phone communication decreased as chat and mail channels gained popularity.</Text>,
       ];
+
+      // Define data and styling for the mail communication chart.
   const mailChartData = {
+    // Chart data for mail communication.
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
       {
@@ -39,8 +46,9 @@ const Analytics = () => {
       },
     ],
   };
-
+  // Define data and styling for the chat communication chart.
   const chatChartData = {
+    // Chart data for chat communication.
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
       {
@@ -51,7 +59,9 @@ const Analytics = () => {
     ],
   };
 
+  // Define data and styling for the phone communication chart.
   const phoneChartData = {
+    // Chart data for phone communication.
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
     datasets: [
       {
@@ -122,7 +132,10 @@ const Analytics = () => {
 
 };
 
+
+// Configuration for chart styles.
 const chartConfig = {
+  // Chart styling and configuration.
   backgroundColor: '#ffffff',
   backgroundGradientFrom: '#ffffff',
   backgroundGradientTo: '#ffffff',
@@ -134,7 +147,10 @@ const chartConfig = {
   },
 };
 
+
+// Define styles using StyleSheet.
 const styles = StyleSheet.create({
+  // Styles for various components in the component.
     container: {
       justifyContent: 'center',
       padding: 16,
