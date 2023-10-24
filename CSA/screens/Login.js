@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet,ImageBackground } from 'react-native';
+// import Onboardings from '../components/onboarding';
 
 const users = [
   { username: 'user1', password: 'password1' },
@@ -30,7 +31,9 @@ const LoginPage = ({ onLogin }) => {
     style={styles.container}
   >
     <View style={styles.container}>
-      <Text style={styles.title}>Login Page</Text>
+        <Text style={styles.title}>Login Page</Text>
+                    {/* <Onboardings /> */}
+
       <TextInput
         style={styles.input}
         placeholder="Username"

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, TouchableOpacity, Image, FlatList, SafeAreaView } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, Image, FlatList, SafeAreaView, ScrollView } from 'react-native'
+import {
+    PieChart
+} from 'react-native-chart-kit';
 const jobTypes = ["Past day", "Past Month", "Past year"];
 import {
     StyleSheet
@@ -9,12 +12,14 @@ import {
     COLORS,
     FONT,
     SIZES
-} from './constants';
+} from '../constants';
 
 import {
     createStackNavigator
 } from '@react-navigation/stack';
-import DetailsPage from './components/cards';
+import DetailsPage from '../components/cards';
+import CallHistory from '../components/call-history';
+import { StatusBar } from 'expo-status-bar';
 
 const details = [{
     title: 'Name',
@@ -32,7 +37,89 @@ const details = [{
     title: 'Gender',
     text: 'Male'
 },
-    // Add more title-detail pairs as needed
+];
+const calls = [{
+    id: 1,
+    callerName: 'John Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Incoming',
+},
+{
+    id: 2,
+    callerName: 'Jane Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Outgoing',
+},
+{
+    id: 3,
+    callerName: 'John Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Incoming',
+},
+{
+    id: 4,
+    callerName: 'Jane Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Outgoing',
+},
+{
+    id: 5,
+    callerName: 'John Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Incoming',
+},
+{
+    id: 6,
+    callerName: 'Jane Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Outgoing',
+},
+{
+    id: 7,
+    callerName: 'John Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Incoming',
+},
+{
+    id: 8,
+    callerName: 'Jane Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Outgoing',
+},
+{
+    id: 9,
+    callerName: 'John Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Incoming',
+},
+{
+    id: 10,
+    callerName: 'Jane Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Outgoing',
+},
+{
+    id: 11,
+    callerName: 'John Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Incoming',
+},
+{
+    id: 12,
+    callerName: 'Jane Doe',
+    timestamp: '2023-10-24 10:30 AM',
+    callType: 'Outgoing',
+}];
+const chartData = [{
+    name: 'Category 1',
+    value: 30,
+    color: '#add8e6'
+},
+{
+    name: 'Category 2',
+    value: 10,
+    color: '#ffcccb'
+}
 ];
 
 const Stack = createStackNavigator();
@@ -42,14 +129,13 @@ export default function Home({ navigation }) {
         <SafeAreaView style={
             {
                 flex: 1,
-                backgroundColor: COLORS.lightWhite
+                backgroundColor: COLORS.lightWhite,
+                display: "flex",
+                flexDirection:"column"
             }
         } >
+            <ScrollView style={{ flex: 1 }}>
             <View>
-                <View style={styles.container}>
-                    <Text style={styles.userName}>Hello World</Text>
-                    <Text style={styles.welcomeMessage}></Text>
-                </View>
                 <View style={styles.tabsContainer}>
                     <FlatList
                         data={jobTypes}
@@ -69,7 +155,21 @@ export default function Home({ navigation }) {
                     />
                 </View>
             </View>
+                <PieChart
+                    data={chartData}
+                    width={300}
+                    height={200}
+                    chartConfig={{
+                        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                    }}
+                    accessor="value"
+                    backgroundColor="transparent"
+                    paddingLeft="15"
+                    absolute
+                />
             <DetailsPage navigation={navigation} />
+            <CallHistory calls={calls} />
+            </ScrollView>
         </SafeAreaView>
     )
 }

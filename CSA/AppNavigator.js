@@ -1,11 +1,11 @@
 // AppNavigator.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginPage from './Login';
-import ContactPage from './Call';
-import Home from './Home';
-import CommunicationServices from './Comms';
-import EmailPage from './EmailPage';
+import LoginPage from './screens/Login';
+import ContactPage from './screens/Call';
+import Home from './screens/Home';
+import CommunicationServices from './screens/Comms';
+import EmailPage from './screens/EmailPage';
 
 import {
   COLORS,
@@ -16,12 +16,12 @@ import {
 } from './constants';
 import ScreenHeaderBtn from './components/screen-header-btn';
 import PhoneScreen from './PhoneScreen';
-import Analtyics from './Analytics'
+import Analtyics from './screens/Analytics'
+import Onboarding from './components/onboarding';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   const handleLogin = (navigation) => {
-    
     navigation.navigate('Home');
   };
 
@@ -50,9 +50,7 @@ const AppNavigator = () => {
           }
           />}
     />
-      {/* <Stack.Screen name="Login">
-        {({ navigation }) => <LoginPage onLogin={() => handleLogin(navigation)} />}
-      </Stack.Screen> */}
+
       <Stack.Screen name="Contact" component={ContactPage} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Communication" component={CommunicationServices} />

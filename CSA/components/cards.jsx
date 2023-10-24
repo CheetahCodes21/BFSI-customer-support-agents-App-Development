@@ -52,8 +52,10 @@ const DetailsPage = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#fff',
+    height: 1000,
+    marginTop: 60,
   },
   scrollContainer: {
     flex: 1,
