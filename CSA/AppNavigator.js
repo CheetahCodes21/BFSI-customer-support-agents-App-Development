@@ -19,6 +19,7 @@ import ScreenHeaderBtn from './components/screen-header-btn';
 import PhoneScreen from './PhoneScreen';
 import Analtyics from './screens/Analytics'
 import Onboarding from './components/onboarding';
+import ChatList from './screens/chat-list';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
@@ -60,6 +61,8 @@ const AppNavigator = () => {
       <Stack.Screen name="PhoneScreen" component={PhoneScreen} />
       <Stack.Screen name="Analtyics" component={Analtyics} />
       <Stack.Screen name="Status" component={Status} />
+      <Stack.Screen name="ChatList" component={ChatList} />
+
     </Stack.Navigator>
   );
 };

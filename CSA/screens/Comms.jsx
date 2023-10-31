@@ -9,7 +9,7 @@ const CommunicationServices  = ({ navigation }) => {
         <Text style={styles.heading}>Choose your channel</Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Chat")} style={[styles.button, { width: 200 }]}>
+        <TouchableOpacity onPress={() => navigation.navigate("ChatList")} style={[styles.button, { width: 200 }]}>
           <Text style={styles.buttonText}>🗨 Chat</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("Email")} style={[styles.button, { width: 200 }]}>
