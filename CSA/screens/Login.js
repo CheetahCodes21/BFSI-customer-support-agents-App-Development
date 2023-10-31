@@ -37,7 +37,6 @@ const LoginPage = ({ onLogin }) => {
         // Store the token from the API response
         const token = data.data.Token;
 
-        // Successfully logged in, call the onLogin callback
         setToken(token); // Store the token in your component state
         onLogin(); // Call the callback function to handle navigation
       })
