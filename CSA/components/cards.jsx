@@ -9,9 +9,10 @@ const DetailsPage = ({navigation}) => {
     'https://th.bing.com/th/id/R.74432ca5886ad69308bf231db1b9ef3b?rik=%2f1KGE%2bm0SsBHSA&riu=http%3a%2f%2fwww.wallpaperbetter.com%2fwallpaper%2f465%2f179%2f662%2fbusiness-people-background-for-720P-wallpaper.jpg&ehk=udX%2fpN6UutfyJ12u40DTeBfaojeqiT0VfcWoStHqX6g%3d&risl=&pid=ImgRaw&r=0',
   ];
   const details = [
-    { title: 'Communication services', text: 'Communication' },
-    { title: 'Communication History', text: 'PhoneScreen' },
-    { title: 'Analytics', text: 'Analtyics' },
+    { title: 'Communication services', link: 'Communication' },
+    { title: 'Communication History', link: 'PhoneScreen' },
+    { title: 'Analytics', link: 'Analtyics' },
+    {title:"Status", link:"Status"}
   ];
 
   return (
@@ -35,8 +36,7 @@ const DetailsPage = ({navigation}) => {
           {details.map((item, index) => (
               <TouchableOpacity style={styles.detailsCard} key={index} onPress={
                   () => {
-                      //   NavigationContainer.navigate(item.title);
-                      navigation.navigate(item.text);
+                      navigation.navigate(item.link);
                       
                   }
             }>
@@ -52,7 +52,7 @@ const DetailsPage = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: '#fff',
     height: 1000,
     marginTop: 60,

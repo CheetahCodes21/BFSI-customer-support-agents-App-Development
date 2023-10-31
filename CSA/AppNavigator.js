@@ -6,6 +6,7 @@ import ContactPage from './screens/Call';
 import Home from './screens/Home';
 import CommunicationServices from './screens/Comms';
 import EmailPage from './screens/EmailPage';
+import Status from './screens/Status';
 
 import {
   COLORS,
@@ -57,6 +58,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Email" component={EmailPage} />
       <Stack.Screen name="PhoneScreen" component={PhoneScreen} />
       <Stack.Screen name="Analtyics" component={Analtyics} />
+      <Stack.Screen name="Status" component={Status} />
     </Stack.Navigator>
   );
 };

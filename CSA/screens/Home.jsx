@@ -131,30 +131,30 @@ export default function Home({ navigation }) {
                 flex: 1,
                 backgroundColor: COLORS.lightWhite,
                 display: "flex",
-                flexDirection:"column"
+                flexDirection: "column"
             }
         } >
             <ScrollView style={{ flex: 1 }}>
-            <View>
-                <View style={styles.tabsContainer}>
-                    <FlatList
-                        data={jobTypes}
-                        renderItem={({ item }) => (
-                            <TouchableOpacity
-                                style={styles.tab(activeJobType, item)}
-                                onPress={() => {
-                                    setActiveJobType(item);
-                                }}
-                            >
-                                <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-                            </TouchableOpacity>
-                        )}
-                        keyExtractor={(item) => item}
-                        contentContainerStyle={{ columnGap: SIZES.small }}
-                        horizontal
-                    />
+                <View>
+                    <View style={styles.tabsContainer}>
+                        <FlatList
+                            data={jobTypes}
+                            renderItem={({ item }) => (
+                                <TouchableOpacity
+                                    style={styles.tab(activeJobType, item)}
+                                    onPress={() => {
+                                        setActiveJobType(item);
+                                    }}
+                                >
+                                    <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
+                                </TouchableOpacity>
+                            )}
+                            keyExtractor={(item) => item}
+                            contentContainerStyle={{ columnGap: SIZES.small }}
+                            horizontal
+                        />
+                    </View>
                 </View>
-            </View>
                 <PieChart
                     data={chartData}
                     width={300}
@@ -167,8 +167,8 @@ export default function Home({ navigation }) {
                     paddingLeft="15"
                     absolute
                 />
-            <DetailsPage navigation={navigation} />
-            <CallHistory calls={calls} />
+                <DetailsPage navigation={navigation} />
+                <CallHistory calls={calls} />
             </ScrollView>
         </SafeAreaView>
     )
