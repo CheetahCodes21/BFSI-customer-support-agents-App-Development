@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 
 const statuses = [
   'Paid Break',
@@ -30,36 +30,44 @@ function Status({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Select Status</Text>
-      <View style={styles.statusList}>
-        {statuses.map((status) => (
-          <TouchableOpacity
-            key={status}
-            onPress={() => handleStatusSelection(status)}
-            style={[
-              styles.statusItem,
-              { borderColor: selectedStatus === status ? 'blue' : 'transparent' },
-            ]}
-          >
-            <Text
-              style={{
-                color: selectedStatus === status ? 'blue' : 'black',
-              }}
+    <ImageBackground
+      source={{
+        uri:
+          'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
+      }}
+      style={styles.container}
+    >
+      <View style={styles.overlay}>
+        <Text style={styles.header}>Select Status</Text>
+        <View style={styles.statusList}>
+          {statuses.map((status) => (
+            <TouchableOpacity
+              key={status}
+              onPress={() => handleStatusSelection(status)}
+              style={[
+                styles.statusItem,
+                { borderColor: selectedStatus === status ? 'purple' : 'transparent' },
+              ]}
             >
-              {status}
-            </Text>
-          </TouchableOpacity>
-        ))}
+              <Text
+                style={{
+                  color: selectedStatus === status ? 'purple' : 'black',
+                }}
+              >
+                {status}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+        <TouchableOpacity
+          onPress={handleConfirmStatus}
+          style={styles.button}
+          disabled={!selectedStatus}
+        >
+          <Text style={styles.buttonText}>Set Status</Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        onPress={handleConfirmStatus}
-        style={styles.button}
-        disabled={!selectedStatus}
-      >
-        <Text style={styles.buttonText}>Set Status</Text>
-      </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -68,14 +76,25 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    width: '99%',
+    height: '99%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    bordergroundColor:"purple",
+    borderRadius: 5,
   },
   header: {
     fontSize: 24,
     marginBottom: 20,
+    color: 'purple',
   },
   statusList: {
-    width: '100%',
+    width: '80%',
+    borderRadius: 5,
+    bordergroundColor:"purple",
   },
   statusItem: {
     padding: 10,
@@ -87,7 +106,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'blue',
+    backgroundColor: 'purple',
     borderRadius: 5,
   },
   buttonText: {
