@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, FlatList, Text, TouchableOpacity, View, ImageBackground, StyleSheet, Image } from 'react-native';
 
 const ChatList = ({ navigation }) => {
     const [chatHistory, setChatHistory] = useState([
@@ -12,7 +12,13 @@ const ChatList = ({ navigation }) => {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#f4f4f4' }}>
+        <ImageBackground
+            source={{
+                uri:
+                    'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
+            }}
+            style={styles.container}
+        >      
             <FlatList
                 data={chatHistory}
                 keyExtractor={(item) => item.id.toString()}
@@ -20,14 +26,19 @@ const ChatList = ({ navigation }) => {
                     <TouchableOpacity onPress={handleChatPress} style={{ padding: 10, borderBottomWidth: 1, borderColor: '#ccc', backgroundColor: 'white' }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
                             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{item.sender}</Text>
-                            <Text style={{ color: '#777', marginLeft: 10 }}>{item.time}</Text>
+                            <Text style={{ color: 'purple', marginLeft: 10 }}>{item.time}</Text>
                         </View>
                         <Text>{item.message}</Text>
                     </TouchableOpacity>
                 )}
             />
-        </SafeAreaView>
+        </ImageBackground>
     );
 };
-
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'left',
+        alignItems: 'left',
+    }});
 export default ChatList;

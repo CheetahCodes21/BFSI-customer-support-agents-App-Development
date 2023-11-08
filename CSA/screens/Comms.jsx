@@ -1,10 +1,19 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, StyleSheet, Image } from 'react-native';
+import Logo from '../assets/images/Logo.png';
 
 const CommunicationServices  = ({ navigation }) => {
 
   return (
+    <ImageBackground
+            source={{
+                uri:
+                    'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
+            }}
+            style={styles.container}
+        >
     <View style={styles.container}>
+    <Image source={Logo} style={styles.logo} />
       <View style={styles.headingContainer}>
         <Text style={styles.heading}>Choose your channel</Text>
       </View>
@@ -20,6 +29,7 @@ const CommunicationServices  = ({ navigation }) => {
         </TouchableOpacity>
       </View>
     </View>
+    </ImageBackground>
   );
 };
 
@@ -28,13 +38,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#001f3f', // Navy blue color
   },
   headingContainer: {
     paddingTop: 50,
   },
   heading: {
-    color: 'white',
+    color: 'purple',
     fontSize: 24,
     textAlign: 'center',
   },
@@ -43,7 +52,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: 'purple',
     padding: 10,
     borderRadius: 5,
     margin: 10,
@@ -54,6 +63,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
   },
+  logo: {
+    width: 200, // Set the desired width
+    height: 100, // Set the desired height
+    marginBottom: 100, // Adjust the spacing as needed
+    resizeMode: 'contain', // Use 'contain' to fit the image properly without cropping
+    alignSelf: 'center', // Center the image horizontally
+},
 });
 
 export default CommunicationServices;
