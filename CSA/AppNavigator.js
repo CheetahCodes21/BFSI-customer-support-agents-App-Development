@@ -51,7 +51,7 @@ const AppNavigator = () => {
       />
 
       <Stack.Screen name="Contact" component={ContactPage} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" options={{ headerShadowVisible: false,headerTitle: "",headerShown:false}} component={Home} />
       <Stack.Screen name="Communication" component={CommunicationServices} />
       <Stack.Screen name="Email" component={EmailPage} />
       <Stack.Screen name="Chat" component={Chat} />
