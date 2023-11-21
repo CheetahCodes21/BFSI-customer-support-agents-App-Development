@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.19.3",
+    "@react-native-picker/picker": "^2.5.1",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/stack": "^6.3.18",
     "expo": "~49.0.13",
@@ -23,6 +24,7 @@
     "react-native-communications": "^2.2.1",
     "react-native-mail": "^6.1.1",
     "react-native-mail-compose": "^0.0.6",
+    "react-native-modal-dropdown": "^1.0.2",
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-swiper": "^1.6.0",
     "react-native-table-component": "^1.2.2",
