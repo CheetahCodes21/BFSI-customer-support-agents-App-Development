@@ -16,96 +16,89 @@ import {
 import {
     createStackNavigator
 } from '@react-navigation/stack';
-import DetailsPage from '../components/cards';
 import CallHistory from '../components/call-history';
-import { StatusBar } from 'expo-status-bar';
 
-const details = [{
-    title: 'Name',
-    text: 'John Doe'
-},
-{
-    title: 'Address',
-    text: '123 Main St, City, Country'
-},
-{
-    title: 'Age',
-    text: '21'
-},
-{
-    title: 'Gender',
-    text: 'Male'
-},
-];
 const calls = [{
-    id: 1,
-    callerName: 'John Doe',
+    token:1,
+    id: "call",
+    callerName: 'John',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    id: 2,
-    callerName: 'Jane Doe',
+    token:2,
+    id: "chat",
+    callerName: 'Doe',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    id: 3,
-    callerName: 'John Doe',
+    token:3,
+    id: "call",
+    callerName: 'Mathew',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    id: 4,
-    callerName: 'Jane Doe',
+    token:4,
+    id: "chat",
+    callerName: 'Morris',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    id: 5,
-    callerName: 'John Doe',
+    token:5,
+    id: "email",
+    callerName: 'Rohit',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    id: 6,
-    callerName: 'Jane Doe',
+    token:6,
+    id: "call",
+    callerName: 'Virat',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    id: 7,
-    callerName: 'John Doe',
+    token:7,
+    id: "email",
+    callerName: 'Malinga',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    id: 8,
-    callerName: 'Jane Doe',
+    token:8,
+    id: "chat",
+    callerName: 'Sangakara',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    id: 9,
-    callerName: 'John Doe',
+    token:9,
+    id: "call",
+    callerName: 'Shilesh',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    id: 10,
-    callerName: 'Jane Doe',
+    token:10,
+    id: "email",
+    callerName: 'Supriya',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    id: 11,
-    callerName: 'John Doe',
+    token:11,
+    id: "chat",
+    callerName: 'Misty',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    id: 12,
-    callerName: 'Jane Doe',
+    token:12,
+    id: "call",
+    callerName: 'Ash',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 }];
@@ -206,26 +199,6 @@ export default function Home({ navigation }) {
             }
         } >
             <ScrollView style={{ flex: 1 }}>
-                {/* <View> */}
-                    {/* <View style={styles.tabsContainer}> */}
-                        {/* <FlatList
-                            data={jobTypes}
-                            renderItem={({ item }) => (
-                                <TouchableOpacity
-                                    style={styles.tab(activeJobType, item)}
-                                    onPress={() => {
-                                        setActiveJobType(item);
-                                    }}
-                                >
-                                    <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-                                </TouchableOpacity>
-                            )}
-                            keyExtractor={(item) => item}
-                            contentContainerStyle={{ columnGap: SIZES.small }}
-                            horizontal
-                        /> */}
-                    {/* </View> */}
-                {/* </View> */}
                 <View>
                 <View style={styles.header}>
                     {/* Left Icon */}
@@ -261,13 +234,7 @@ export default function Home({ navigation }) {
                         backgroundColor="transparent"
                         paddingLeft="50"
                     />
-                     {/* <View style={styles.chartDataContainer}>
-                        {chartData.map((data, index) => (
-                            <View key={index} style={styles.chartDataItem}>
-                                <Text style={styles.chartDataText}>{`${data.name}: ${data.value}`}</Text>
-                            </View>
-                        ))}
-                    </View> */}
+                     
                 </View>
                 {/* <DetailsPage navigation={navigation} /> */}
                 <CallHistory calls={calls} />
