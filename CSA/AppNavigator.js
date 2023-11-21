@@ -10,13 +10,13 @@ import Status from './screens/Status';
 
 import {
   COLORS,
-  FONT,
+  // FONT,
   SIZES,
   icons,
   images,
 } from './constants';
 import ScreenHeaderBtn from './components/screen-header-btn';
-import PhoneScreen from './PhoneScreen';
+import PhoneScreen from '././screens/PhoneScreen';
 import Analtyics from './screens/Analytics'
 import Onboarding from './components/onboarding';
 import ChatList from './screens/chat-list';
@@ -26,10 +26,14 @@ const AppNavigator = () => {
   const handleLogin = (navigation) => {
     navigation.navigate('Home');
   };
+  const LoginPageComponent = ({ navigation }) => (
+    <LoginPage onLogin={() => handleLogin(navigation)} />
+  );
 
   return (
     <Stack.Navigator>
       <Stack.Screen
+      name="ScreenName"
       options={{
         headerStyle: {
           backgroundColor: COLORS.lightWhite,
@@ -43,15 +47,8 @@ const AppNavigator = () => {
         ),
         headerTitle: "",
       }}
-      name="ScreenName"
-      component = {
-          ({
-            navigation
-          }) => <LoginPage onLogin = {
-            () => handleLogin(navigation)
-          }
-          />}
-    />
+       component={LoginPageComponent} // Use the defined component here
+      />
 
       <Stack.Screen name="Contact" component={ContactPage} />
       <Stack.Screen name="Home" component={Home} />

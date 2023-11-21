@@ -1,8 +1,8 @@
 // Import necessary modules and components from React Native and custom files.
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, FlatList, TextInput, TouchableOpacity, Image } from 'react-native';
-import Phonlog from './api/phonlog'; // Import phone log data
-import { COLORS, icons, SIZES } from './constants'; // Import custom style constants
+import Phonlog from '../api/phonlog'; // Import phone log data
+import { COLORS, icons, SIZES } from '../constants'; // Import custom style constants
 
 // Define the PhoneScreen functional component.
 const PhoneScreen = () => {
@@ -106,9 +106,9 @@ const PhoneScreen = () => {
 
 // Define the component's styles using StyleSheet.create.
 const styles = StyleSheet.create({
-  main: {
-    padding: 3,
-    marginTop: 4,
+  main:{
+   padding:3,
+   marginTop:4,
   },
   container: {
     flex: 1,
@@ -117,12 +117,99 @@ const styles = StyleSheet.create({
   header: {
     textAlign: 'center',
     color: 'white',
-    backgroundColor: '#007bff',
+    backgroundColor: '#007bff', 
     padding: 16,
     fontSize: 20,
     fontWeight: 'bold',
   },
-  // ... (other style definitions)
+  item: {
+    backgroundColor: 'white', 
+    padding: 16,
+    borderBottomWidth: 2,
+    borderBottomColor: '#ccc',
+    marginBottom:4,
+  },
+  name: {
+    fontSize: 16,
+    marginBottom: 8,
+    marginLeft:2,
+    color: '#333', 
+  },
+  text: {
+    marginTop:3,
+    fontSize: 14,
+    color: '#333', 
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+  },
+  leftContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  rightContainer: {
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+  },
+  logo: {
+    width: 30,
+    height: 30,
+    marginRight: 8,
+  },
+  startTime: {
+    fontSize: 14,
+    color: '#333',
+  },
+  descriptionLabelContainer: {
+    flexDirection: 'row', 
+  },
+  descriptionLabel: {
+    marginTop:3,
+    color: 'blue', 
+    fontSize: 14,
+    fontWeight: 'bold', 
+  },
+  searchContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: SIZES.large,
+    height: 50,
+    marginLeft:3,
+    paddingBottom:14,
+},
+searchWrapper: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginRight: SIZES.small,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: SIZES.medium,
+    height: "100%",
+    marginLeft:3,
+    padding:4,
+},
+searchInput: {
+    width: "100%",
+    height: "100%",
+    paddingHorizontal: SIZES.medium,
+},
+searchBtn: {
+    width: 50,
+    height: "100%",
+    backgroundColor: COLORS.tertiary,
+    borderRadius: SIZES.medium,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight:4,
+},
+searchBtnImage: {
+    width: "50%",
+    height: "50%",
+    tintColor: COLORS.white,
+},
 });
 
 // Export the PhoneScreen component as the default export.

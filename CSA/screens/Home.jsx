@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { Text, View, TextInput, TouchableOpacity, Image, FlatList, SafeAreaView, ScrollView } from 'react-native'
+import { Ionicons } from '@expo/vector-icons';
 import {
     PieChart
 } from 'react-native-chart-kit';
-const jobTypes = ["Past day", "Past Month", "Past year"];
 import {
     StyleSheet
 } from "react-native";
 
 import {
     COLORS,
-    FONT,
     SIZES
 } from '../constants';
 
@@ -111,20 +110,30 @@ const calls = [{
     callType: 'Outgoing',
 }];
 const chartData = [{
-    name: 'Category 1',
-    value: 30,
+    name: 'Chat',
+    value: 22,
     color: '#add8e6'
 },
 {
-    name: 'Category 2',
-    value: 10,
+    name: 'Call',
+    value: 45,
     color: '#ffcccb'
+},
+{
+    name: 'Mail',
+    value: 34,
+    color: '#ffdacb'
 }
 ];
 
 const Stack = createStackNavigator();
 export default function Home({ navigation }) {
-    const [activeJobType, setActiveJobType] = useState("Full-time");
+    const [showMenu, setShowMenu] = useState(false); // State to toggle the side drawer
+
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    };
+    // const [activeJobType, setActiveJobType] = useState("Full-time");
     return (
         <SafeAreaView style={
             {
@@ -135,9 +144,9 @@ export default function Home({ navigation }) {
             }
         } >
             <ScrollView style={{ flex: 1 }}>
-                <View>
-                    <View style={styles.tabsContainer}>
-                        <FlatList
+                {/* <View> */}
+                    {/* <View style={styles.tabsContainer}> */}
+                        {/* <FlatList
                             data={jobTypes}
                             renderItem={({ item }) => (
                                 <TouchableOpacity
@@ -152,38 +161,118 @@ export default function Home({ navigation }) {
                             keyExtractor={(item) => item}
                             contentContainerStyle={{ columnGap: SIZES.small }}
                             horizontal
-                        />
-                    </View>
+                        /> */}
+                    {/* </View> */}
+                {/* </View> */}
+                <View style={styles.header}>
+                    {/* Left Icon */}
+                    <View style={styles.logo} />
+
+                    {/* Title */}
+                    {/* <Text style={styles.title}>Your App</Text> */}
+
+                    {/* Hamburger Icon */}
+                    <TouchableOpacity style={styles.rightIcon} onPress={toggleMenu}>
+                        <Ionicons name="menu" size={34} color="black" />
+                    </TouchableOpacity>
                 </View>
-                <PieChart
-                    data={chartData}
-                    width={300}
-                    height={200}
-                    chartConfig={{
-                        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                    }}
-                    accessor="value"
-                    backgroundColor="transparent"
-                    paddingLeft="15"
-                    absolute
-                />
-                <DetailsPage navigation={navigation} />
+                {showMenu && (
+                    <View style={styles.sideDrawer}>
+                        <Text>Menu Item 1</Text>
+                        <Text>Menu Item 2</Text>
+                        {/* Add more menu items */}
+                    </View>
+                )}
+                <View style={styles.chartContainer}>
+                    <View style={styles.shadowBox}>
+                        <Text style={styles.greenborder}>All Interaction</Text>
+                    </View>
+                    <PieChart
+                        data={chartData}
+                        width={300}
+                        height={200}
+                        chartConfig={{
+                            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                        }}
+                        accessor="value"
+                        backgroundColor="transparent"
+                        paddingLeft="50"
+                    />
+                     {/* <View style={styles.chartDataContainer}>
+                        {chartData.map((data, index) => (
+                            <View key={index} style={styles.chartDataItem}>
+                                <Text style={styles.chartDataText}>{`${data.name}: ${data.value}`}</Text>
+                            </View>
+                        ))}
+                    </View> */}
+                </View>
+                {/* <DetailsPage navigation={navigation} /> */}
                 <CallHistory calls={calls} />
             </ScrollView>
         </SafeAreaView>
     )
 }
 const styles = StyleSheet.create({
+    logo: {
+        width: 40,
+        height: 40,
+        borderRadius: 20, // Half the width and height to create a circle
+        backgroundColor: 'green',
+    },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 22,
+        paddingVertical: 25,
+        // borderBottomWidth: 1,
+        // borderBottomColor: '#ccc',
+        height:100,
+    },
+    rightIcon: {
+        borderRadius: 50,
+        padding: 8,
+    },
+    chartContainer: {
+        backgroundColor: 'white',
+        borderRadius: 10,
+        margin: 25,
+        elevation: 5, // Android shadow elevation
+        shadowColor: 'black', // iOS shadow color
+        shadowOffset: { width: 0, height: 2 }, // iOS shadow offset
+        shadowOpacity: 0.3, // iOS shadow opacity
+        shadowRadius: 4, // iOS shadow radius
+        height:300
+    },
+    shadowBox: {
+        borderRadius: 10,
+        overflow: 'hidden',
+    },
+    greenborder:{
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        backgroundColor: "darkgreen",
+        maxWidth: 1220,
+        borderWidth: 2,
+        borderColor: "green",
+        borderRadius: 40,
+        color: "white",
+        fontWeight: "bold",
+        fontSize: 20,
+        margin: 15,
+        // textAlign:'center',
+        textAlign:'left'
+        // marginTop:125
+    },
     container: {
         width: "100%",
     },
     userName: {
-        fontFamily: FONT.regular,
         fontSize: SIZES.large,
         color: COLORS.secondary,
     },
     welcomeMessage: {
-        fontFamily: FONT.bold,
+       
         fontSize: SIZES.xLarge,
         color: COLORS.primary,
         marginTop: 2,
@@ -205,7 +294,7 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     searchInput: {
-        fontFamily: FONT.regular,
+       
         width: "100%",
         height: "100%",
         paddingHorizontal: SIZES.medium,
@@ -235,7 +324,24 @@ const styles = StyleSheet.create({
         borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
     }),
     tabText: (activeJobType, item) => ({
-        fontFamily: FONT.medium,
         color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
     }),
+    chartDataContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginTop: 10,
+        marginLeft: 10,
+    },
+    chartDataItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginRight: 10,
+        marginBottom: 5,
+    },
+    chartDataText: {
+        fontSize: 14,
+        color: 'black',
+        marginRight: 5,
+        fontWeight:'bold'
+    },
 });

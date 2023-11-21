@@ -10,11 +10,7 @@ const COLORS = {
   lightWhite: "#FAFAFC",
 };
 
-const FONT = {
-  regular: "DMRegular",
-  medium: "DMMedium",
-  bold: "DMBold",
-};
+
 
 const SIZES = {
   xSmall: 10,
@@ -48,4 +44,4 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, SIZES, SHADOWS };
+export { COLORS, SIZES, SHADOWS };
