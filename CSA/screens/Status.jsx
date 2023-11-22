@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
+import ScreenHeaderBtn from '../components/screen-header-btn';
 
 const statuses = [
   'Paid Break',
@@ -30,25 +31,54 @@ function Status({ navigation }) {
   };
 
   return (
-    <ImageBackground
-      source={{
-        uri:
-          'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
-      }}
-      style={styles.container}
-    >
+    <>
+      <View style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, }}>
+        <View style={{
+          height: 50,
+          width: 50,
+          paddingLeft: 60,
+        }}>
+          <ScreenHeaderBtn iconUrl={{ uri: 'https://th.bing.com/th/id/OIP.8awBhAqpC1kP4SEytS24EgAAAA?rs=1&pid=ImgDetMain' }} dimension="200%" />
+        </View>
+        <View style={{ display: "flex", flexDirection: 'column' }}>
+          <Text style={{ color: "Black", fontSize: 30, textAlign: "center", marginTop: 20, fontWeight: 'bold' }}>Varun Bhutada</Text>
+          <Text style={{ color: "gray", fontSize: 20, textAlign: "center", marginTop: 10 }}>Available</Text>
+          <View style={{
+            display: "flex",
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginTop: 20,
+            marginBottom: 20,
+          }}>
+            <Text>0</Text>
+            <Text>0</Text>
+            <Text>:</Text>
+            <Text>0</Text>
+            <Text>0</Text>
+            <Text>:</Text>
+            <Text>0</Text>
+            <Text>0</Text>
+          </View>
+        </View>
+      </View>
       <View style={styles.overlay}>
-        <Text style={styles.header}>Select Status</Text>
+        {/* <Text style={styles.header}>Select Status</Text> */}
         <View style={styles.statusList}>
-          {statuses.map((status) => (
+          {statuses.map((status, index) => (
             <TouchableOpacity
               key={status}
               onPress={() => handleStatusSelection(status)}
               style={[
                 styles.statusItem,
-                { borderColor: selectedStatus === status ? 'purple' : 'transparent' },
+                {
+                  borderColor: selectedStatus === status ? 'purple' : 'transparent',
+                  display: "flex",
+                  flexDirection: 'row',
+                  gap: 4,
+                },
               ]}
             >
+              <Text>{index + 1}</Text>
               <Text
                 style={{
                   color: selectedStatus === status ? 'purple' : 'black',
@@ -67,7 +97,7 @@ function Status({ navigation }) {
           <Text style={styles.buttonText}>Set Status</Text>
         </TouchableOpacity>
       </View>
-    </ImageBackground>
+    </>
   );
 }
 
@@ -83,7 +113,7 @@ const styles = StyleSheet.create({
     height: '99%',
     alignItems: 'center',
     justifyContent: 'center',
-    bordergroundColor:"purple",
+    bordergroundColor: "purple",
     borderRadius: 5,
   },
   header: {
@@ -94,7 +124,7 @@ const styles = StyleSheet.create({
   statusList: {
     width: '80%',
     borderRadius: 5,
-    bordergroundColor:"purple",
+    bordergroundColor: "purple",
   },
   statusItem: {
     padding: 10,
