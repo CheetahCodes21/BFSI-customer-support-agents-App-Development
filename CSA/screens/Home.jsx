@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Text, View, TextInput, TouchableOpacity,ImageBackground, DrawerLayoutAndroid,Image, FlatList, SafeAreaView, ScrollView } from 'react-native'
-import { MaterialCommunityIcons,Ionicons } from '@expo/vector-icons';
+import { Text, View, TextInput, TouchableOpacity, ImageBackground, DrawerLayoutAndroid, Image, FlatList, SafeAreaView, ScrollView } from 'react-native'
+import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import {
     PieChart
 } from 'react-native-chart-kit';
@@ -19,84 +19,84 @@ import {
 import CallHistory from '../components/call-history';
 
 const calls = [{
-    token:1,
+    token: 1,
     id: "call",
     callerName: 'John',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    token:2,
+    token: 2,
     id: "chat",
     callerName: 'Doe',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    token:3,
+    token: 3,
     id: "call",
     callerName: 'Mathew',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    token:4,
+    token: 4,
     id: "chat",
     callerName: 'Morris',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    token:5,
+    token: 5,
     id: "email",
     callerName: 'Rohit',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    token:6,
+    token: 6,
     id: "call",
     callerName: 'Virat',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    token:7,
+    token: 7,
     id: "email",
     callerName: 'Malinga',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    token:8,
+    token: 8,
     id: "chat",
     callerName: 'Sangakara',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    token:9,
+    token: 9,
     id: "call",
     callerName: 'Shilesh',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    token:10,
+    token: 10,
     id: "email",
     callerName: 'Supriya',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Outgoing',
 },
 {
-    token:11,
+    token: 11,
     id: "chat",
     callerName: 'Misty',
     timestamp: '2023-10-24 10:30 AM',
     callType: 'Incoming',
 },
 {
-    token:12,
+    token: 12,
     id: "call",
     callerName: 'Ash',
     timestamp: '2023-10-24 10:30 AM',
@@ -123,7 +123,7 @@ const Stack = createStackNavigator();
 export default function Home({ navigation }) {
 
     const [showMenu, setShowMenu] = useState(false); // State to toggle the side drawer
-    
+
     // const details = [
     //     { title: 'Communication services', link: 'Communication' },
     //     { title: 'Communication History', link: 'PhoneScreen' },
@@ -144,112 +144,112 @@ export default function Home({ navigation }) {
     let drawerRef = null;
 
     const drawer = (
-            <ImageBackground
+        <ImageBackground
             source={{
                 uri:
-                  'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
-              }}
-              style={styles.background}
-          
-            >
-        <View style={styles.sideMenu}>
-        <View style={styles.iconGroup}>
-            <MaterialCommunityIcons style={styles.icon} name="home"  size={30} color="black" onPress={() => {
-        
-        navigation.navigate('Home');
-    }} />
-            <MaterialCommunityIcons style={styles.icon} name="phone" size={30} color="black" onPress={() => {
-        
-        navigation.navigate('Contact');
-    }} />
-            <MaterialCommunityIcons style={styles.icon} name="chat" size={30} color="black" onPress={() => {
-        
-        navigation.navigate('ChatList');
-    }} />
+                    'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
+            }}
+            style={styles.background}
+
+        >
+            <View style={styles.sideMenu}>
+                <View style={styles.iconGroup}>
+                    <MaterialCommunityIcons style={styles.icon} name="home" size={30} color="black" onPress={() => {
+
+                        navigation.navigate('Home');
+                    }} />
+                    <MaterialCommunityIcons style={styles.icon} name="phone" size={30} color="black" onPress={() => {
+
+                        navigation.navigate('Contact');
+                    }} />
+                    <MaterialCommunityIcons style={styles.icon} name="chat" size={30} color="black" onPress={() => {
+
+                        navigation.navigate('ChatList');
+                    }} />
                     <MaterialCommunityIcons style={styles.icon} name="email" size={30} color="black" onPress={() => {
 
                         navigation.navigate('Email');
                     }} />
-        </View>
-        <View style={styles.iconGroup}>
-            <MaterialCommunityIcons style={styles.icon} name="cog" size={30} color="black"  onPress={() => {
-        
-        navigation.navigate('Status');
-    }} />
-            <MaterialCommunityIcons style={styles.icon} name="logout" size={30} color="black"  onPress={() => {
-        navigation.navigate('Logout');
-    }} />
-        </View>
-    </View>
+                </View>
+                <View style={styles.iconGroup}>
+                    <MaterialCommunityIcons style={styles.icon} name="cog" size={30} color="black" onPress={() => {
+
+                        navigation.navigate('Status');
+                    }} />
+                    <MaterialCommunityIcons style={styles.icon} name="logout" size={30} color="black" onPress={() => {
+                        navigation.navigate('Logout');
+                    }} />
+                </View>
+            </View>
         </ImageBackground>
     );
     // const [activeJobType, setActiveJobType] = useState("Full-time");
     return (
         <ImageBackground
-        source={{
-            uri:'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
-        }}
-        style={styles.background}
-    >
-        <DrawerLayoutAndroid
-            ref={(ref) => (drawerRef = ref)}
-            drawerWidth={100}
-            drawerPosition="right"
-            style={{backgroundColor:"transparent"}}
-            renderNavigationView={() => drawer}
+            source={{
+                uri: 'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
+            }}
+            style={styles.background}
         >
-        <SafeAreaView style={
-            {
-                flex: 1,
-                // backgroundColor: COLORS.lightWhite,
-                display: "flex",
-                flexDirection: "column"
-            }
-        } >
-            <ScrollView style={{ flex: 1 }}>
-                <View>
-                <View style={styles.header}>
-                    {/* Left Icon */}
-                    {/* <View style={styles.logo} /> */}
-                    <View style={styles.logoContainer}>
-                        <Image
-                            style={styles.logo}
-                            source={{ uri: 'https://play-lh.googleusercontent.com/3gmcK68HCn52542XkzzQ3Y7h7SLR2lQEeFnsxWz7shTBcza24X8OmytnAK25jtrJCQ' }}
-                        />
-                    </View>
+            <DrawerLayoutAndroid
+                ref={(ref) => (drawerRef = ref)}
+                drawerWidth={100}
+                drawerPosition="right"
+                style={{ backgroundColor: "transparent" }}
+                renderNavigationView={() => drawer}
+            >
+                <SafeAreaView style={
+                    {
+                        flex: 1,
+                        // backgroundColor: COLORS.lightWhite,
+                        display: "flex",
+                        flexDirection: "column"
+                    }
+                } >
+                    <ScrollView style={{ flex: 1 }}>
+                        <View>
+                            <View style={styles.header}>
+                                {/* Left Icon */}
+                                {/* <View style={styles.logo} /> */}
+                                <View style={styles.logoContainer}>
+                                    <Image
+                                        style={styles.logo}
+                                        source={{ uri: 'https://play-lh.googleusercontent.com/3gmcK68HCn52542XkzzQ3Y7h7SLR2lQEeFnsxWz7shTBcza24X8OmytnAK25jtrJCQ' }}
+                                    />
+                                </View>
 
-                    {/* Title */}
-                    <Text style={styles.title}>Tetherfi</Text>
+                                {/* Title */}
+                                <Text style={styles.title}>Tetherfi</Text>
 
-                    {/* Hamburger Icon */}
-                    <TouchableOpacity style={styles.rightIcon} onPress={toggleMenu}>
-                        <Ionicons name="menu" size={38}  color="black" />
-                    </TouchableOpacity>
-                </View>
-              
-                <View style={styles.chartContainer}>
-                    <View style={styles.shadowBox}>
-                        <Text style={styles.greenborder}>All Interaction</Text>
-                    </View>
-                    <PieChart
-                        data={chartData}
-                        width={300}
-                        height={200}
-                        chartConfig={{
-                            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                        }}
-                        accessor="value"
-                        backgroundColor="transparent"
-                        paddingLeft="50"
-                    />
-                     
-                </View>
-                {/* <DetailsPage navigation={navigation} /> */}
-                <CallHistory calls={calls} />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
-        </DrawerLayoutAndroid>
+                                {/* Hamburger Icon */}
+                                <TouchableOpacity style={styles.rightIcon} onPress={toggleMenu}>
+                                    <Ionicons name="menu" size={38} color="black" />
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.chartContainer}>
+                                <View style={styles.shadowBox}>
+                                    <Text style={styles.greenborder}>All Interaction</Text>
+                                </View>
+                                <PieChart
+                                    data={chartData}
+                                    width={300}
+                                    height={200}
+                                    chartConfig={{
+                                        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                                    }}
+                                    accessor="value"
+                                    backgroundColor="transparent"
+                                    paddingLeft="50"
+                                />
+
+                            </View>
+                            {/* <DetailsPage navigation={navigation} /> */}
+                            <CallHistory calls={calls} />
+                        </View>
+                    </ScrollView>
+                </SafeAreaView>
+            </DrawerLayoutAndroid>
         </ImageBackground>
     )
 }
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingHorizontal: 20,
-       
+
     },
     iconGroup: {
         // flexDirection: 'column',
@@ -271,12 +271,12 @@ const styles = StyleSheet.create({
     icon: {
         marginVertical: 40, // Adjust space between icons
     },
-  
-    title:{
-      fontWeight:'bold',
-      fontSize:25,
-      marginTop:35,
-      color:'purple'
+
+    title: {
+        fontWeight: 'bold',
+        fontSize: 25,
+        marginTop: 35,
+        color: 'purple'
     },
     background: {
         flex: 1,
@@ -287,21 +287,21 @@ const styles = StyleSheet.create({
     //     position: 'absolute',
     //     top: 0,
     //     bottom: 0,
-        
+
     //     backgroundColor: COLORS.green,
     //     zIndex: 1, // Ensure it stays on top of other content
-        
+
     // },
     logoContainer: {
         alignItems: 'center',
         marginTop: 40,
-        marginLeft:5
+        marginLeft: 5
     },
     logo: {
         width: 40,
         height: 40,
-        borderRadius: 40, 
-        
+        borderRadius: 40,
+
     },
     header: {
         flexDirection: 'row',
@@ -316,8 +316,8 @@ const styles = StyleSheet.create({
     rightIcon: {
         borderRadius: 50,
         padding: 8,
-        marginTop:40
-        
+        marginTop: 40
+
     },
     chartContainer: {
         backgroundColor: 'rgba(120,0,120,0.3)',
@@ -328,13 +328,13 @@ const styles = StyleSheet.create({
         // shadowOffset: { width: 0, height: 2 },
         // shadowOpacity: 0.3, 
         // shadowRadius: 4, 
-        height:300
+        height: 300
     },
     shadowBox: {
         // borderRadius: 10,
         overflow: 'hidden',
     },
-    greenborder:{
+    greenborder: {
         paddingVertical: 10,
         paddingHorizontal: 20,
         backgroundColor: 'rgba(128, 0, 128,1)',
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         margin: 15,
         // textAlign:'center',
-        textAlign:'left'
+        textAlign: 'left'
         // marginTop:125
     },
     container: {
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
         color: COLORS.secondary,
     },
     welcomeMessage: {
-       
+
         fontSize: SIZES.xLarge,
         color: COLORS.primary,
         marginTop: 2,
@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     searchInput: {
-       
+
         width: "100%",
         height: "100%",
         paddingHorizontal: SIZES.medium,
@@ -428,6 +428,6 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: 'black',
         marginRight: 5,
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
 });
