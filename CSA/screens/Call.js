@@ -11,11 +11,14 @@ import {
 } from 'react-native';
 import Communications from 'react-native-communications';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import CustomAPI from '../api/custom';
 
 const ContactPage = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [comment, setComment] = useState('');
   const [isModalVisible, setModalVisible] = useState(false);
+  // const [filteredData, setFilteredData] = useState('');
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -25,6 +28,25 @@ const ContactPage = ({ navigation }) => {
     if (phoneNumber) {
       Communications.phonecall(phoneNumber, true);
     }
+  };
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Filter the CustomAPI based on the search term
+  const filteredData = CustomAPI.filter(
+    (item) =>
+      item.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.status.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSearch = () => {
+    // const filteredData = CustomAPI.filter(
+    //   (item) =>
+    //     item.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    //     item.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    //     item.status.toLowerCase().includes(searchTerm.toLowerCase())
+    // );
+    // setFilteredData(filteredData); 
   };
 
   return (
@@ -132,11 +154,95 @@ const ContactPage = ({ navigation }) => {
           </View>
         </Modal>
       </View>
+      <View style={styles.cont}>
+        <Text style={styles.headerText}>Phone Log History</Text>
+        <View style={styles.co}>
+        <TextInput
+        style={styles.searchBar}
+        placeholder="Search"
+        onChangeText={(text) => setSearchTerm(text)}
+        value={searchTerm}
+      />
+        <TouchableOpacity onPress={handleSearch} style={styles.searchIconContainer}>
+          <MaterialIcons name="search" size={24} color="black" />
+        </TouchableOpacity>
+        </View>
+      
+        <View style={styles.tableHeader}>
+        <Text style={styles.headingpart}>First Name</Text>
+        <Text style={styles.headingpart}> Last Name</Text>
+        <Text style={styles.headingpart}>ID</Text>
+        <Text style={styles.headingpart}>Status</Text>
+      </View>
+      {filteredData.map((item) => (
+        <View style={styles.tableRow} key={item.id}>
+          <Text style={styles.cellText}>{item.firstName}</Text>
+          <Text style={styles.cellText}>{item.lastName}</Text>
+          <Text style={styles.cellText}>{item.id}</Text>
+          <Text style={styles.cellText}>{item.status}</Text>
+        </View>
+      ))}
+
+      </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
+  co:{
+    flexDirection: 'row',
+  },
+  searchIconContainer: {
+    // padding: 20,
+    marginRight:15,
+    marginTop:15,
+    marginBottom:15,
+    borderRadius:10,
+    padding:5,
+    backgroundColor:'green'
+  },
+  cont: {
+    paddingHorizontal: 20,
+    padding: 20,
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    margin:10,
+    borderRadius:10
+  },
+  searchBar: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    margin: 10,
+    borderRadius:10,
+    paddingHorizontal: 10,
+    width:300
+  },
+  tableHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+    paddingBottom: 5,
+  },
+  headingpart: {
+    flex: 1,
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  tableRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgrey',
+    paddingBottom: 5,
+  },
+  cellText: {
+    flex: 1,
+    fontSize: 16,
+    textAlign: 'center',
+  },
     container: {
       flex: 1,
     },
@@ -170,7 +276,10 @@ const styles = StyleSheet.create({
     headerText: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: 'white',
+      color: 'black',
+     
+      marginBottom:25
+
     },
     inputBox: {
       flexDirection: 'row',
