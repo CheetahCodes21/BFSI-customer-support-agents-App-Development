@@ -6,12 +6,10 @@ import {
   TouchableOpacity,
   View,
   ImageBackground,
+  TextInput,
   StyleSheet,
-  Image,
-  TextInput
 } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
-
 
 const ChatList = ({ navigation }) => {
   const [chatHistory, setChatHistory] = useState([
@@ -35,7 +33,7 @@ const ChatList = ({ navigation }) => {
       <View style={styles.topBox}>
         <View style={styles.headingContainer}>
           <Text style={styles.headingText}>Send SMS</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Text>X</Text>
           </TouchableOpacity>
         </View>
@@ -46,23 +44,23 @@ const ChatList = ({ navigation }) => {
           keyboardType="numeric"
         />
         <View style={styles.dropdownContainer}>
-  <ModalDropdown
-    style={styles.dropdown}
-    options={['Option 1', 'Option 2', 'Option 3']} // Replace with your department options
-    defaultValue="Select Department"
-    onSelect={(index, value) => {
-      // Handle selection
-    }}
-  />
-  <ModalDropdown
-    style={styles.dropdown}
-    options={['Group 1', 'Group 2', 'Group 3']} // Replace with your group options
-    defaultValue="Select Group"
-    onSelect={(index, value) => {
-      // Handle selection
-    }}
-  />
-</View>
+          <ModalDropdown
+            style={styles.dropdown}
+            options={['Option 1', 'Option 2', 'Option 3']}
+            defaultValue="Select Department"
+            onSelect={(index, value) => {
+              // Handle selection
+            }}
+          />
+          <ModalDropdown
+            style={styles.dropdown}
+            options={['Group 1', 'Group 2', 'Group 3']}
+            defaultValue="Select Group"
+            onSelect={(index, value) => {
+              // Handle selection
+            }}
+          />
+        </View>
         <TextInput
           style={styles.messageInput}
           placeholder="Enter Message"
@@ -81,18 +79,13 @@ const ChatList = ({ navigation }) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={handleChatPress}
-            style={{
-              padding: 10,
-              borderBottomWidth: 1,
-              borderColor: '#ccc',
-              backgroundColor: 'white',
-            }}
+            style={styles.chatItem}
           >
             <View
-              style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}
+              style={styles.chatItemInner}
             >
-              <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{item.sender}</Text>
-              <Text style={{ color: 'purple', marginLeft: 10 }}>{item.time}</Text>
+              <Text style={styles.senderText}>{item.sender}</Text>
+              <Text style={styles.timeText}>{item.time}</Text>
             </View>
             <Text>{item.message}</Text>
           </TouchableOpacity>
@@ -120,10 +113,6 @@ const styles = StyleSheet.create({
   headingText: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  closeIcon: {
-    width: 20,
-    height: 20,
   },
   inputField: {
     height: 40,
@@ -155,6 +144,25 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     alignItems: 'center',
+  },
+  chatItem: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+    backgroundColor: 'white',
+  },
+  chatItemInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  senderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  timeText: {
+    color: 'purple',
+    marginLeft: 10,
   },
 });
 
