@@ -8,6 +8,7 @@ import {
   ImageBackground,
   Image,
   Modal,
+  ScrollView
 } from 'react-native';
 import Communications from 'react-native-communications';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -51,12 +52,13 @@ const ContactPage = ({ navigation }) => {
 
   return (
     <ImageBackground
-      source={{
-        uri:
+    source={{
+      uri:
           'https://img.freepik.com/premium-vector/abstract-watercolor-background_71674-1277.jpg',
-      }}
-      style={styles.container}
-    >
+        }}
+        style={styles.container}
+        >
+      <ScrollView>
       <View style={styles.mainContainer}>
         {/* Header */}
         <View style={styles.headingContainer}>
@@ -170,20 +172,21 @@ const ContactPage = ({ navigation }) => {
       
         <View style={styles.tableHeader}>
         <Text style={styles.headingpart}>First Name</Text>
-        <Text style={styles.headingpart}> Last Name</Text>
+        <Text style={styles.headingpart}>Number</Text>
         <Text style={styles.headingpart}>ID</Text>
         <Text style={styles.headingpart}>Status</Text>
       </View>
       {filteredData.map((item) => (
         <View style={styles.tableRow} key={item.id}>
           <Text style={styles.cellText}>{item.firstName}</Text>
-          <Text style={styles.cellText}>{item.lastName}</Text>
+          <Text style={styles.cellno}>{item.number}</Text>
           <Text style={styles.cellText}>{item.id}</Text>
           <Text style={styles.cellText}>{item.status}</Text>
         </View>
       ))}
 
       </View>
+    </ScrollView>
     </ImageBackground>
   );
 };
