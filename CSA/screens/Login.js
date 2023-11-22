@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ImageBackground,Image } from 'react-native';
 import Logo from '../assets/images/Logo.png';
+import Loginimg from '../assets/images/login.png'
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -56,6 +57,7 @@ const LoginPage = ({ onLogin }) => {
     >
       <View style={styles.container}>
         <Image source={Logo} style={styles.logo}/>
+        <Image source={Loginimg} />
         <Text style={styles.title}>Login Page</Text>
         <TextInput
           style={styles.input}
@@ -116,7 +118,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 200, // Set the desired width
     height: 100, // Set the desired height
-    marginBottom: 100, // Adjust the spacing as needed
+    marginBottom: 50, // Adjust the spacing as needed
     resizeMode: 'contain', // Use 'contain' to fit the image properly without cropping
     alignSelf: 'center', // Center the image horizontally
   },

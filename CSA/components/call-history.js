@@ -48,7 +48,7 @@ const CallHistory = ({ calls }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    // padding: 16,
   },
   tableHeader: {
     flexDirection: 'row',

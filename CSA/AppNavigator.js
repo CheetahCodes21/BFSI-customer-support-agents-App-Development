@@ -7,6 +7,7 @@ import CommunicationServices from './screens/Comms';
 import EmailPage from './screens/EmailPage';
 import Chat from './components/chat';
 import Status from './screens/Status';
+import LogoutPage from './screens/Logout';
 
 import {
   COLORS,
@@ -59,6 +60,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Analtyics" component={Analtyics} />
       <Stack.Screen name="Status" component={Status} />
       <Stack.Screen name="ChatList" component={ChatList} />
+      <Stack.Screen name="Logout" options={{ headerShadowVisible: false,headerTitle: "",headerShown:false}} component={LogoutPage} />
 
     </Stack.Navigator>
   );

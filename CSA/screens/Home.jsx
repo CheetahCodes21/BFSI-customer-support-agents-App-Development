@@ -160,7 +160,7 @@ export default function Home({ navigation }) {
     }} />
             <MaterialCommunityIcons style={styles.icon} name="phone" size={30} color="black" onPress={() => {
         
-        navigation.navigate('PhoneScreen');
+        navigation.navigate('Contact');
     }} />
             <MaterialCommunityIcons style={styles.icon} name="chat" size={30} color="black" onPress={() => {
         
@@ -169,8 +169,13 @@ export default function Home({ navigation }) {
             <MaterialCommunityIcons  style={styles.icon} name="email" size={30} color="black" />
         </View>
         <View style={styles.iconGroup}>
-            <MaterialCommunityIcons style={styles.icon} name="cog" size={30} color="black" />
-            <MaterialCommunityIcons style={styles.icon} name="logout" size={30} color="black" />
+            <MaterialCommunityIcons style={styles.icon} name="cog" size={30} color="black"  onPress={() => {
+        
+        navigation.navigate('Status');
+    }} />
+            <MaterialCommunityIcons style={styles.icon} name="logout" size={30} color="black"  onPress={() => {
+        navigation.navigate('Logout');
+    }} />
         </View>
     </View>
         </ImageBackground>
