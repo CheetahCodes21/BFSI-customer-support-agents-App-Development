@@ -11,6 +11,7 @@ import {
   TextInput
 } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
+import CustomDrawerLayout from '../components/Drawer';
 
 
 const ChatList = ({ navigation }) => {
@@ -33,6 +34,9 @@ const ChatList = ({ navigation }) => {
     >
       {/* Top Box */}
       <View style={styles.topBox}>
+        <View>
+            <CustomDrawerLayout/>
+        </View>
         <View style={styles.headingContainer}>
           <Text style={styles.headingText}>Send SMS</Text>
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
