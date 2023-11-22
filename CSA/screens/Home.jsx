@@ -164,13 +164,23 @@ export default function Home({ navigation }) {
     }} />
             <MaterialCommunityIcons style={styles.icon} name="chat" size={30} color="black" onPress={() => {
         
-        navigation.navigate('Communication');
+        navigation.navigate('ChatList');
     }} />
-            <MaterialCommunityIcons  style={styles.icon} name="email" size={30} color="black" />
+                    <MaterialCommunityIcons style={styles.icon} name="email" size={30} color="black" onPress={() => {
+
+                        navigation.navigate('Email');
+                    }} />
         </View>
         <View style={styles.iconGroup}>
-            <MaterialCommunityIcons style={styles.icon} name="cog" size={30} color="black" />
-            <MaterialCommunityIcons style={styles.icon} name="logout" size={30} color="black" />
+                    <MaterialCommunityIcons style={styles.icon} name="cog" size={30} color="black" onPress={() => {
+
+                        navigation.navigate('Status');
+                    }} />
+                    <MaterialCommunityIcons style={styles.icon} name="logout" size={30} color="black"
+                        onPress={() => {
+
+                            navigation.navigate('Login');
+                        }}/>
         </View>
     </View>
         </ImageBackground>
