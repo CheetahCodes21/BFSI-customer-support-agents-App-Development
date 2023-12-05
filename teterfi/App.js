@@ -1,3 +1,4 @@
+// Import necessary dependencies from React Navigation and React Native
 const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
@@ -7,6 +8,7 @@ import MakeCall from "./screens/MakeCall";
 import Email from "./screens/Email";
 import SignIn from "./screens/SignIn";
 
+// Import necessary components from React Navigation and React Native
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
 
@@ -21,10 +23,12 @@ const App = () => {
     "Outfit-Bold": require("./assets/fonts/Outfit-Bold.ttf"),
   });
 
+  // If fonts are still loading or there is an error, return null
   if (!fontsLoaded && !error) {
     return null;
   }
 
+  // Render the main application structure
   return (
     <>
       <NavigationContainer>

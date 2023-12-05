@@ -4,6 +4,7 @@ import { Image } from "expo-image";
 import { Color, Border, FontFamily, FontSize } from "../GlobalStyles";
 
 const Home = () => {
+  // Return the JSX structure for the Home component
   return (
     <View style={styles.home}>
       <View style={styles.homeChild} />
